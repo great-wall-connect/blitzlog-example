@@ -47,6 +47,10 @@ impl TaskStore {
         self.tasks.get(id)
     }
 
+    pub fn remove(&mut self, id: &Uuid) -> bool {
+        self.tasks.remove(id).is_some()
+    }
+
     pub fn all(&self) -> Vec<&Task> {
         self.tasks.values().collect()
     }

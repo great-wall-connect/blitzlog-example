@@ -52,3 +52,15 @@ pub async fn get_task(
         .map(Json)
         .ok_or(StatusCode::NOT_FOUND)
 }
+
+pub async fn delete_task(
+    State(store): State<Arc<RwLock<TaskStore>>>,
+    Path(id): Path<Uuid>,
+) -> StatusCode {
+    let mut store = store.write().await;
+    if store.remove(&id) {
+        StatusCode::NO_CONTENT
+    } else {
+        StatusCode::NOT_FOUND
+    }
+}
