@@ -14,5 +14,8 @@ description = "Build the taskforge binary"
 run = "cargo build --release"
 
 [tasks.bootstrap]
-description = "Install system and Rust build dependencies"
-run = "sudo dnf install -y gcc gcc-c++ make pkg-config openssl-devel && rustup component add rustfmt clippy && cargo fetch"
+description = "Install system and Rust build dependencies (Ubuntu)"
+run = """
+apt-get update && apt-get install -y --no-install-recommends \
+    gcc g++ make pkg-config libssl-dev ca-certificates
+"""
