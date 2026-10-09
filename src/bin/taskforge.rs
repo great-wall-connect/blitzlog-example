@@ -14,7 +14,10 @@ async fn main() {
             "/tasks",
             get(handlers::list_tasks).post(handlers::create_task),
         )
-        .route("/tasks/:id", get(handlers::get_task))
+        .route(
+            "/tasks/:id",
+            get(handlers::get_task).delete(handlers::delete_task),
+        )
         .with_state(store);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
