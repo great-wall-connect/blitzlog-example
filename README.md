@@ -1,5 +1,7 @@
 # blitzlog-example — taskforge
 
+<!-- autonomous mode OK -->
+
 > Worked example for **[blitzlog](https://github.com/great-wall-connect/blitzlog)**.
 
 A small Rust HTTP service called **`taskforge`** that demonstrates the Blitzlog autonomous coding pipeline end-to-end. Four seed issues in `docs/issues/` exercise the full agent loop — each is sized so one autonomous run should close it.
